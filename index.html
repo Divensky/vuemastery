@@ -12,8 +12,10 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart.length }})</div>
-      <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+      <div class="cart">Cart({{ cart.length }})
+        <div v-show="cart.length" >Items in the cart: {{ cart.join(', ') }}</div>
+      </div>
+      <product-display :premium="premium" :cart="cart" @add-to-cart="incrementCart" @remove-from-cart="decrementCart"></product-display>
     </div>
 
     <!-- Import App -->

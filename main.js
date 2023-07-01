@@ -6,8 +6,14 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        updateCart(id) {
+        incrementCart(id) {
             this.cart.push(id)
+        },
+        decrementCart(id) {
+            let index =  this.cart.indexOf(id)
+            if (index > -1) {
+                this.cart.splice(index, 1);
+              }
         }
     }
   }) 
